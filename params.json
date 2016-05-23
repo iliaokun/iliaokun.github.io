@@ -1,6 +1,6 @@
 {
   "name": "Iliaokun.GitHub.io/",
   "tagline": "Android Studio 2.1 正式版打包加速的方法",
-  "body": "最近Google推出 Studio2.1正式版，兴致勃勃的去使用，后来发现了许多坑，最重要的问题就是Gradle编译打包速度很慢，最后还是找到了原因。按照以下方法操作，能大大提高速度。\r\n\r\n第一步：找到文件gradle.properties\r\n\r\n找到Android工程下的对应文件\r\n第二步：在gradle.properties文件中增加以下代码：\r\n\r\norg.gradle.parallel=true # 并行构建\r\n\r\norg.gradle.daemon=true # 开启Gradle守护进程\r\n\r\n# 关键修改JVM的值\r\n\r\norg.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m\r\n重新运行后，发现速度要快上好几倍！  开心~~",
+  "body": "最近Google推出 Studio2.1正式版，兴致勃勃的去使用，后来发现了许多坑，最重要的问题就是Gradle编译打包速度很慢，最后还是找到了原因。按照以下方法操作，能大大提高速度。\r\n\r\n第一步：找到文件gradle.properties\r\n\r\n找到Android工程下的对应文件\r\n第二步：在gradle.properties文件中增加以下代码：\r\n\r\norg.gradle.parallel=true # 并行构建\r\n\r\norg.gradle.daemon=true # 开启Gradle守护进程\r\n\r\n# 关键修改JVM的值\r\n\r\norg.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m\r\n重新运行后，发现速度要快上好几倍！  开心~~\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
