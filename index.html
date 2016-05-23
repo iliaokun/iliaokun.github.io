@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Iliaokun.GitHub.io by iliaokun</title>
+    <title>Iliaokun.GitHub.io/ by iliaokun</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -11,12 +11,27 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Iliaokun.GitHub.io</h1>
-      <h2 class="project-tagline">开篇</h2>
+      <h1 class="project-name">Iliaokun.GitHub.io/</h1>
+      <h2 class="project-tagline">Android Studio 2.1 正式版打包加速的方法</h2>
     </section>
 
     <section class="main-content">
-      <p>分享即将开始....</p>
+      <p>最近Google推出 Studio2.1正式版，兴致勃勃的去使用，后来发现了许多坑，最重要的问题就是Gradle编译打包速度很慢，最后还是找到了原因。按照以下方法操作，能大大提高速度。</p>
+
+<p>第一步：找到文件gradle.properties</p>
+
+<p>找到Android工程下的对应文件
+第二步：在gradle.properties文件中增加以下代码：</p>
+
+<p>org.gradle.parallel=true # 并行构建</p>
+
+<p>org.gradle.daemon=true # 开启Gradle守护进程</p>
+
+<h1>
+<a id="关键修改jvm的值" class="anchor" href="#%E5%85%B3%E9%94%AE%E4%BF%AE%E6%94%B9jvm%E7%9A%84%E5%80%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>关键修改JVM的值</h1>
+
+<p>org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m
+重新运行后，发现速度要快上好几倍！  开心~~</p>
 
       <footer class="site-footer">
 
